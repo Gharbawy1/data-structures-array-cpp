@@ -2,7 +2,7 @@
 		2 - Remove Duplicates from Sorted Array II
 		> Solved by : Ahmed Elghrabawy
 		> problem link : https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&envId=top-interview-150
-	
+		> 2 Solutions 
     */
 
 // #1 
