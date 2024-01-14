@@ -1,0 +1,30 @@
+/*
+		4 - Find the Width of Columns of a Grid
+		> Solved by : Ahmed Elghrabawy
+		> problem link : https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/
+    */
+
+
+class Solution {
+public:
+//For numbers represented in decimal form, if we take their log in base 10 and round it up, we’ll get the number of digits in that number
+    vector<int> findColumnWidth(vector<vector<int>>& grid) {
+        vector<int>maxLengths;
+        for (int j = 0; j < grid[0].size(); j++) {  // Iterate over columns
+        int ans = 0;size
+        for (int i = 0; i < grid.(); i++) {
+                if (grid[i][j]<0){
+                    int length = (int) (log10(abs(grid[i][j])) + 1)+1;//+1 for sign
+                    ans = max(ans,length);
+                }
+                else{
+                    int length = (int) (log10(abs(grid[i][j])) + 1);
+                    ans = max(ans,length);
+                }
+            }
+            maxLengths.push_back(ans);
+        }
+        return maxLengths;
+
+    }
+};
