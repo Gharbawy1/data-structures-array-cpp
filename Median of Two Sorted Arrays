@@ -1,0 +1,56 @@
+  /*
+		6 - Median of Two Sorted Arrays
+		> Solved by : Ahmed Elghrabawy
+		> problem link : https://leetcode.com/problems/median-of-two-sorted-arrays/description/
+		> 2 Solutions 
+    */
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        
+  int p1 = 0, p2 = 0;
+        vector<int> Marray;
+
+        // Check if both vectors are empty
+        if (nums1.empty() && nums2.empty()) {
+            return 0.0;
+        }
+
+        // Calculate the initial value of cnt considering empty vectors
+        int cnt = nums1.size() + nums2.size();
+
+        // Ensure the loop only runs when there are elements to process
+        while (p1 < nums1.size() || p2 < nums2.size()) {
+            if (p1 < nums1.size() && (p2 == nums2.size() || nums1[p1] < nums2[p2])) {
+                Marray.push_back(nums1[p1]);
+                p1++;
+            }
+            else if (p2 < nums2.size() && (p1 == nums1.size() || nums1[p1] > nums2[p2])) {
+                Marray.push_back(nums2[p2]);
+                p2++;
+            }
+            else {
+                // nums1[p1] == nums2[p2]
+                Marray.push_back(nums1[p1]);
+                Marray.push_back(nums2[p2]);
+                p1++;
+                p2++;
+            }
+            cnt--;
+        }
+
+        double median;
+        if (Marray.size() % 2 == 0) {
+            // even "median in single number"
+            median = (double)(Marray[Marray.size() / 2] + Marray[(Marray.size() / 2) - 1]) / 2;
+        }
+        else {
+            // odd "median in single number"
+            median = (double)Marray[Marray.size() / 2];
+        }
+        return median;  }      
+        
+        
+          
+};
